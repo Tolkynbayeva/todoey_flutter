@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_flutter/widgets/tasks_list.dart';
 
 class TasksPage extends StatelessWidget {
   const TasksPage({super.key});
@@ -55,11 +56,13 @@ class TasksPage extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20.0),
                       topRight: Radius.circular(20.0))),
+              child: TasksList(),
             ),
           ),
         ],
@@ -67,3 +70,5 @@ class TasksPage extends StatelessWidget {
     );
   }
 }
+
+
