@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoey_flutter/widgets/tasks_list.dart';
+import 'add_task_page.dart';
 
 class TasksPage extends StatelessWidget {
-  const TasksPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +15,9 @@ class TasksPage extends StatelessWidget {
           size: 30.0,
           color: Colors.white,
         ),
-        onPressed: () => (),
+        onPressed: () {
+          showModalBottomSheet(context: context, builder: (context) => AddTaskPage());
+        },
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
