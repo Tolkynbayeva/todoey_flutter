@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_flutter/models/task.dart';
+import 'package:todoey_flutter/models/task_data.dart';
+import 'package:provider/provider.dart';
+
+
 
 class AddTaskPage extends StatelessWidget {
   final Function addTaskCallback;
@@ -52,7 +57,8 @@ class AddTaskPage extends StatelessWidget {
                 )),
             child: const Text('Add'),
             onPressed: () {
-              addTaskCallback(newTaskTitle);
+              Provider.of<TaskData>(context, listen: false).addTask(newTaskTitle);
+              Navigator.pop(context);
             },
           ),
         ],

@@ -29,10 +29,6 @@ class TasksPage extends StatelessWidget {
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: AddTaskPage((newTaskTitle){
-                  // setState(() {
-                  //   tasks.add(Task(name: newTaskTitle));
-                  // });
-                  Navigator.pop(context);
                 }),
               ),
             ),
