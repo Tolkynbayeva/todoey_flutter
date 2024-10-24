@@ -16,7 +16,16 @@ class TasksPage extends StatelessWidget {
           color: Colors.white,
         ),
         onPressed: () {
-          showModalBottomSheet(context: context, builder: (context) => AddTaskPage());
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: AddTaskPage(),
+              ),
+            ),
+          );
         },
       ),
       body: Column(
@@ -71,5 +80,3 @@ class TasksPage extends StatelessWidget {
     );
   }
 }
-
-
