@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AddTaskPage extends StatelessWidget {
+  final Function addTaskCallback;
+  AddTaskPage(this.addTaskCallback);
+
+
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle = '';
     return Container(
       padding: const EdgeInsets.all(20.0),
       decoration: const BoxDecoration(
@@ -20,7 +25,7 @@ class AddTaskPage extends StatelessWidget {
               color: Colors.lightBlueAccent,
             ),
           ),
-          const TextField(
+          TextField(
             autofocus: true,
             textAlign: TextAlign.center,
             decoration: InputDecoration(
@@ -33,17 +38,22 @@ class AddTaskPage extends StatelessWidget {
                     BorderSide(color: Colors.lightBlueAccent, width: 3.0),
               ),
             ),
+            onChanged: (newText) {
+              newTaskTitle = newText;
+            },
           ),
           const SizedBox(height: 20.0),
           TextButton(
             style: TextButton.styleFrom(
                 backgroundColor: Colors.lightBlueAccent,
                 foregroundColor: Colors.white,
-                shape:const RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero,
                 )),
             child: const Text('Add'),
-            onPressed: () {},
+            onPressed: () {
+              addTaskCallback(newTaskTitle);
+            },
           ),
         ],
       ),
